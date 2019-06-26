@@ -14,13 +14,19 @@ const Board = () => {
 
     return (
         // <div className="board">
-        <div>
+        <div className="board-container">
             {board && (
                 <>
-                    <h1 className="text-center">This is the board</h1>
+                    <h1 className="text-center" style={{ marginTop: "0" }}>
+                        This is the board
+                    </h1>
                     <div className="board">
                         {board.map(list => (
-                            <List key={list.id} cards={list} title={list.title} />
+                            <List
+                                key={list.id}
+                                cards={list}
+                                title={list.title}
+                            />
                         ))}
                     </div>
                 </>

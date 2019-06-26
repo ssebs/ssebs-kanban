@@ -4,7 +4,7 @@ import Board from "./components/Board";
 
 function App() {
     return (
-        <div>
+        <>
             <Board />
             <hr />
             <p style={{ marginTop: "3rem" }}>Board has a list of cards. e.g.</p>
@@ -34,7 +34,7 @@ function App() {
                     </li>
                 </ul>
             </ul>
-        </div>
+        </>
     );
 }
 
