@@ -6,3 +6,24 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+.text-center {
+    text-align: center;
+}
+.board {
+    width: 100%;
+    max-width: 768px;
+    background-color: #f4f4f4;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 15px;   
+}
+.list {
+    grid-column: auto
+}
+.card {
+}
+.card-header {
+}
+.card-body {
+}
