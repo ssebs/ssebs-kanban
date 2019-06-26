@@ -62,3 +62,22 @@ export const updateCard = updatedCard => {
         }
     });
 };
+
+export const updateList = updatedList => {
+    return new Promise((resolve, reject) => {
+        let hasFoundList = false;
+        currentBoard = currentBoard.map(list => {
+            if (list.id === updatedList.id) {
+                list = { ...updatedList };
+                hasFoundList = true;
+            }
+            return list;
+        });
+        if (hasFoundList) {
+            localStorage.setItem("board", JSON.stringify(currentBoard));
+            resolve({ Status: "Updated" });
+        } else {
+            reject({ Status: "Could not update" });
+        }
+    });
+};

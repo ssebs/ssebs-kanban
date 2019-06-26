@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import Card from "./Card";
+import { updateList } from "../CardService";
 
 const List = props => {
     const [list, setList] = useState(props.list);
@@ -8,11 +9,11 @@ const List = props => {
 
     const handleSubmit = () => {
         setIsEditing(false);
-        // updateList(list)
-        //     .then(resp => {
-        //         // console.log(resp);
-        //     })
-        //     .catch(resp => console.error(resp));
+        updateList(list)
+            .then(resp => {
+                console.log(resp);
+            })
+            .catch(resp => console.error(resp));
     };
 
     return (
