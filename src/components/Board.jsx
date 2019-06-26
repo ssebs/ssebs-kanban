@@ -24,8 +24,8 @@ const Board = () => {
                         {board.map(list => (
                             <List
                                 key={list.id}
-                                cards={list}
-                                title={list.title}
+                                cards={list.cards}
+                                list={list}
                             />
                         ))}
                     </div>
