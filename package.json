@@ -1,5 +1,6 @@
 {
   "name": "ssebs-kanban",
+  "homepage": "https://ssebs.github.io/ssebs-kanban",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
