@@ -5,6 +5,10 @@
     --bg2: #dddddd;
     --bg3: #bbbbbb;
     --bg4: #fefefe;
+    --bg5: #ecebeb;
+    --hover: #d4d4d4;
+    --font-light: #616161;
+    --font-dark: #333333;
 }
 * {
     box-sizing: border-box;
@@ -17,6 +21,7 @@ body {
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: var(--font-dark);
 }
 .text-center {
     text-align: center;
@@ -28,12 +33,12 @@ body {
 }
 .board {
     width: 100%;
-    max-width: 768px;    
+    max-width: 768px;
     margin: auto;
     padding: 2rem;
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-gap: 15px;
+    /* grid-gap: 15px; */
     justify-content: space-around;
 }
 .list {
@@ -51,14 +56,26 @@ body {
     margin: 0 auto;
 }
 .card {
-    margin: .75rem  auto;
+    margin: 0.75rem auto;
     background-color: var(--bg4);
-    padding: 0 0.5rem;
+    min-height: 64px;
     width: 95%;
+    transition: background-color 0.2s;
 }
+.card:hover {
+    background-color: var(--hover);
+    cursor: text;
+    transition: background-color 0.2s;
+}
+
 .card-header {
     margin: 0 auto;
+    background-color: var(--bg5);
+    color: var(--font-light);
+    font-size: .75rem;
+    border-bottom: var(--bg3) 1px solid;
 }
 .card-body {
+    padding: 0 0.5rem;
     margin: 0 auto;
 }

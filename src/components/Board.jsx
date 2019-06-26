@@ -10,7 +10,7 @@ const Board = () => {
         getBoard().then(resp => {
             setboard(resp);
         });
-    }, []);
+    }, [board]);
 
     return (
         // <div className="board">

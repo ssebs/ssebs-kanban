@@ -10,19 +10,19 @@ const defaultBoard = [
         id: 2,
         title: "col 2",
         cards: [
-            { id: 1, text: "blah" },
-            { id: 2, text: "dfdsf" },
             { id: 3, text: "test" },
-            { id: 4, text: "fourth thing" }
+            { id: 4, text: "fourth thing" },
+            { id: 5, text: "blah" },
+            { id: 6, text: "dfdsf" }
         ]
     },
     {
         id: 3,
         title: "col 3",
         cards: [
-            { id: 1, text: "xsdfdsf" },
-            { id: 2, text: "sfsdff" },
-            { id: 3, text: "test3" }
+            { id: 7, text: "xsdfdsf" },
+            { id: 8, text: "sfsdff" },
+            { id: 9, text: "test3" }
         ]
     }
 ];
@@ -38,5 +38,27 @@ export const getBoard = () => {
             localStorage.setItem("board", JSON.stringify(defaultBoard));
         }
         resolve(currentBoard);
+    });
+};
+
+export const updateCard = updatedCard => {
+    return new Promise((resolve, reject) => {
+        let hasFoundCard = false;
+        currentBoard = currentBoard.map(list => {
+            const tmp = list.cards.map(card => {
+                if (card.id === updatedCard.id) {
+                    card = { ...updatedCard };
+                    hasFoundCard = true;
+                }
+                return card;
+            });
+            return { ...list, cards: tmp };
+        });
+        if (hasFoundCard) {
+            localStorage.setItem("board", JSON.stringify(currentBoard));
+            resolve({ Status: "Updated" });
+        } else {
+            reject({ Status: "Could not update" });
+        }
     });
 };
