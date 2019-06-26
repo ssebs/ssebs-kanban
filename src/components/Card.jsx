@@ -11,11 +11,10 @@ const Card = ({ data }) => {
     };
 
     const handleSubmit = () => {
-        console.log(card);
+        setIsEditing(false);
         updateCard(card)
             .then(resp => {
-                console.log(resp);
-                // alert(resp);
+                // console.log(resp);
             })
             .catch(resp => console.error(resp));
     };
@@ -24,10 +23,7 @@ const Card = ({ data }) => {
         <div
             className="card"
             onClick={() => setIsEditing(true)}
-            onBlur={() => {
-                handleSubmit();
-                setIsEditing(false);
-            }}
+            onBlur={() => handleSubmit()}
         >
             {isEditing ? (
                 <input
@@ -36,6 +32,9 @@ const Card = ({ data }) => {
                     autoFocus
                     value={card.text}
                     onChange={handleChange}
+                    onKeyPress={e => {
+                        if (e.key === "Enter") handleSubmit();
+                    }}
                 />
             ) : (
                 <>

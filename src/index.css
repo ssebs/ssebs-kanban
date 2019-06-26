@@ -72,10 +72,17 @@ body {
     margin: 0 auto;
     background-color: var(--bg5);
     color: var(--font-light);
-    font-size: .75rem;
+    font-size: 0.75rem;
     border-bottom: var(--bg3) 1px solid;
 }
 .card-body {
     padding: 0 0.5rem;
     margin: 0 auto;
+}
+.card input {
+    height: 1.75rem;
+    padding-left: 0.5rem;
+    font-size: 1rem;
+    display: block;
+    width: 100%;
 }
