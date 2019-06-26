@@ -49,7 +49,10 @@ body {
     border-radius: 2px;
 }
 .list-title {
-    background-color: var(--bg3);
+    /* background-color: var(--bg3); */
+    background-color: var(--primary);
+    color: #ffffff;
+    font-weight: bold;
     padding: 0.5rem;
     padding-left: 0.75rem;
     border-radius: 2px;
@@ -85,4 +88,12 @@ body {
     font-size: 1rem;
     display: block;
     width: 100%;
+}
+.footer {
+    height: 250px;
+    text-align: center;
+    margin-top: 2rem;
+}
+.footer a {
+    color: var(--primary)
 }
