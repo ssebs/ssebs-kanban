@@ -18,10 +18,10 @@ const List = props => {
             .catch(resp => console.error(resp));
     };
 
-    // a little function to help us with reordering the result
-    const reorder = (list, oldIndex, newIndex) => {
+    // process the change
+    const reorder = (tmpList, oldIndex, newIndex) => {
         // arr.splice(index, how_many_remove, [item_to_add_at_index])
-        const result = Array.from(list); // copy original list
+        const result = Array.from(tmpList); // copy original list
         const [item] = result.splice(oldIndex, 1); // remove 1 item from old position
         result.splice(newIndex, 0, item); // add new item to new position
         return result;
@@ -31,7 +31,26 @@ const List = props => {
         if (!result.destination) {
             return;
         }
-        console.log(result);
+        // console.log(result);
+        const cardID = result.draggableId;
+        let oldIndx = -1;
+        for (let i = 0; i < list.cards.length; i++) {
+            if (list.cards[i].id === cardID) {
+                oldIndx = i;
+            }
+        }
+        const newIndx = result.destination.index;
+        const newList = {
+            ...list,
+            cards: reorder(list.cards, oldIndx, newIndx)
+        };
+
+        setList(newList);
+        updateList(newList)
+            .then(resp => {
+                console.log(resp);
+            })
+            .catch(resp => console.error(resp));
     };
 
     return (
