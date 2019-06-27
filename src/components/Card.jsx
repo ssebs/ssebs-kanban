@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 import { updateCard } from "../CardService";
 
-const Card = ({ data }) => {
-    const [card, setCard] = useState(data);
+const Card = props => {
+    const [card, setCard] = useState(props.data);
     const [isEditing, setIsEditing] = useState(false);
 
     const handleChange = e => {
@@ -17,11 +17,16 @@ const Card = ({ data }) => {
         });
     };
 
+    const { provided, innerRef } = props;
+
     return (
         <div
             className="card"
-            onClick={() => setIsEditing(true)}
+            onDoubleClick={() => setIsEditing(true)}
             onBlur={() => handleSubmit()}
+            {...provided.dragHandleProps}
+            {...provided.draggableProps}
+            ref={innerRef}
         >
             {isEditing ? (
                 <input
@@ -36,8 +41,8 @@ const Card = ({ data }) => {
                 />
             ) : (
                 <>
-                    <div className="card-header">{data.id}</div>
-                    <p className="card-body">{data.text}</p>
+                    <div className="card-header">{props.data.id}</div>
+                    <p className="card-body">{props.data.text}</p>
                 </>
             )}
         </div>
