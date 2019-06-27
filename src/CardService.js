@@ -27,6 +27,19 @@ const defaultBoard = [
     }
 ];
 
+export const emptyBoard = [
+    {
+        id: 1,
+        title: "Change me!",
+        cards: [
+            {
+                id: 1,
+                text: "..."
+            }
+        ]
+    }
+];
+
 let currentBoard = [];
 
 export const getBoard = () => {
@@ -79,5 +92,19 @@ export const updateList = updatedList => {
         } else {
             reject({ Status: "Could not update" });
         }
+    });
+};
+
+export const getNextCardID = () => {
+    return new Promise((resolve, reject) => {
+        let newID = -1;
+        currentBoard.forEach(list => {
+            const tmp = list.cards.forEach(card => {
+                if (newID <= card.id) {
+                    newID = card.id + 1;
+                }
+            });
+        });
+        resolve(newID);
     });
 };

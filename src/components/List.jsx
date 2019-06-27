@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Card from "./Card";
-import { updateList } from "../CardService";
+import { updateList, getNextCardID } from "../CardService";
 
 const List = props => {
     const [list, setList] = useState(props.list);
@@ -18,6 +18,7 @@ const List = props => {
 
     return (
         <div className="list">
+            {/* title */}
             {isEditing ? (
                 <input
                     type="text"
@@ -37,9 +38,30 @@ const List = props => {
                     {list.title}
                 </p>
             )}
+            {/* cards */}
             {props.cards.map(card => (
                 <Card key={card.id} data={card} />
             ))}
+            <button
+                className="btn add-card"
+                onClick={e => {
+                    getNextCardID().then(resp => {
+                        const newCards = [
+                            ...props.cards,
+                            {
+                                id: resp,
+                                text: ""
+                            }
+                        ];
+                        setList({ ...list, cards: newCards });
+                        updateList({ ...list, cards: newCards }).then(resp => {
+                            // console.log(resp);
+                        });
+                    });
+                }}
+            >
+                Add a new Card
+            </button>
         </div>
     );
 };

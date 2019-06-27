@@ -9,6 +9,7 @@
     --hover: #d4d4d4;
     --font-light: #616161;
     --font-dark: #333333;
+    --font-white: #ffffff;
 }
 * {
     box-sizing: border-box;
@@ -50,7 +51,7 @@ body {
 .list-title {
     /* background-color: var(--bg3); */
     background-color: var(--primary);
-    color: #ffffff;
+    color: var(--font-white);
     font-weight: bold;
     padding: 0.5rem;
     padding-left: 0.75rem;
@@ -96,4 +97,18 @@ body {
 }
 .footer a {
     color: var(--primary);
+}
+.add-card {
+    width: 65%;
+    box-shadow: 0 5px 3px #bbbbbb;
+}
+.btn {
+    font-size: 1rem;
+    margin: 1rem auto;
+    padding: 0.5rem;
+    display: block;
+    border: 1px solid var(--bg2);
+    border-radius: 5px;
+    background-color: var(--primary);
+    color: var(--font-white);
 }
