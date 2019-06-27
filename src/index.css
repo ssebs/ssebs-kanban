@@ -1,6 +1,7 @@
 /* vars */
 :root {
     --primary: #41afff;
+    --secondary: #3599e2;
     --bg1: #f4f4f4;
     --bg2: #dddddd;
     --bg3: #bbbbbb;
@@ -23,6 +24,9 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: var(--font-dark);
+}
+hr {
+    max-width: 768px;
 }
 .text-center {
     text-align: center;
@@ -111,4 +115,16 @@ body {
     border-radius: 5px;
     background-color: var(--primary);
     color: var(--font-white);
+    transition: background-color 0.2s;
+}
+.btn:hover {
+    background-color: var(--secondary);
+    transition: background-color 0.2s;
+}
+.btn-group {
+    width: fit-content;
+    margin: auto;
+}
+.btn-group .btn {
+    display: inline-block;
 }

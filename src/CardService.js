@@ -54,6 +54,26 @@ export const getBoard = () => {
     });
 };
 
+export const resetBoard = (resetType) => {
+    // resetType can be "default", or "empty"
+    return new Promise((resolve, reject) => {
+        if (resetType === "default") {
+            localStorage.setItem(
+                "board",
+                JSON.stringify(defaultBoard)
+            );
+        }else if (resetType === "empty") {
+            localStorage.setItem(
+                "board",
+                JSON.stringify(emptyBoard)
+            );
+        } else {
+            reject({ Status: "Could not reset board" });
+        }
+        resolve({ Status: "Board reset" });
+    });
+}
+
 export const updateCard = updatedCard => {
     return new Promise((resolve, reject) => {
         let hasFoundCard = false;
@@ -99,7 +119,7 @@ export const getNextCardID = () => {
     return new Promise((resolve, reject) => {
         let newID = -1;
         currentBoard.forEach(list => {
-            const tmp = list.cards.forEach(card => {
+            list.cards.forEach(card => {
                 if (newID <= card.id) {
                     newID = card.id + 1;
                 }
