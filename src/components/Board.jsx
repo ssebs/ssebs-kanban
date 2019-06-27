@@ -36,7 +36,7 @@ const Board = () => {
                                 );
                             }}
                         >
-                            Reset the Board
+                            Reset the Board to the sample data
                         </button>{" "}
                         <button
                             className="btn"

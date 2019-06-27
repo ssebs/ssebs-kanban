@@ -3,26 +3,26 @@
 const defaultBoard = [
     {
         id: 1,
-        title: "col 1",
-        cards: [{ id: 1, text: "foo" }, { id: 2, text: "bar" }]
+        title: "To Do",
+        cards: [{ id: 1, text: "Add tests" }, { id: 2, text: "Make cleaner" }]
     },
     {
         id: 2,
-        title: "col 2",
+        title: "In Progress",
         cards: [
-            { id: 3, text: "test" },
-            { id: 4, text: "fourth thing" },
-            { id: 5, text: "blah" },
-            { id: 6, text: "dfdsf" }
+            { id: 3, text: "Work on styling" },
+            { id: 4, text: "Figure out the buttons" },
+            { id: 5, text: "Add Delete functionality" },
+            { id: 6, text: "Refactor" }
         ]
     },
     {
         id: 3,
-        title: "col 3",
+        title: "Completed",
         cards: [
-            { id: 7, text: "xsdfdsf" },
-            { id: 8, text: "sfsdff" },
-            { id: 9, text: "test3" }
+            { id: 7, text: "Get CI working" },
+            { id: 8, text: "Start on project" },
+            { id: 9, text: "Save to localStorage" }
         ]
     }
 ];
