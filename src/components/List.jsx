@@ -38,24 +38,25 @@ const List = props => {
                     {list.title}
                 </p>
             )}
-            {/* cards */}
+            {/* List of Cards */}
             {props.cards.map(card => (
                 <Card key={card.id} data={card} />
             ))}
+            {/* Add Card */}
             <button
                 className="btn add-card"
-                onClick={e => {
+                onClick={() => {
                     getNextCardID().then(resp => {
                         const newCards = [
                             ...props.cards,
                             {
                                 id: resp,
-                                text: ""
+                                text: "..."
                             }
                         ];
                         setList({ ...list, cards: newCards });
                         updateList({ ...list, cards: newCards }).then(resp => {
-                            // console.log(resp);
+                            console.log(resp);
                         });
                     });
                 }}

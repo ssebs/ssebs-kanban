@@ -54,25 +54,26 @@ export const getBoard = () => {
     });
 };
 
-export const resetBoard = (resetType) => {
+export const resetBoard = resetType => {
     // resetType can be "default", or "empty"
     return new Promise((resolve, reject) => {
         if (resetType === "default") {
-            localStorage.setItem(
-                "board",
-                JSON.stringify(defaultBoard)
-            );
-        }else if (resetType === "empty") {
-            localStorage.setItem(
-                "board",
-                JSON.stringify(emptyBoard)
-            );
+            localStorage.setItem("board", JSON.stringify(defaultBoard));
+        } else if (resetType === "empty") {
+            localStorage.setItem("board", JSON.stringify(emptyBoard));
         } else {
             reject({ Status: "Could not reset board" });
         }
         resolve({ Status: "Board reset" });
     });
-}
+};
+
+export const updateBoard = updatedBoard => {
+    return new Promise(resolve => {
+        localStorage.setItem("board", JSON.stringify(updatedBoard));
+        resolve({ Status: "Updated Board" });
+    });
+};
 
 export const updateCard = updatedCard => {
     return new Promise((resolve, reject) => {
@@ -89,7 +90,7 @@ export const updateCard = updatedCard => {
         });
         if (hasFoundCard) {
             localStorage.setItem("board", JSON.stringify(currentBoard));
-            resolve({ Status: "Updated" });
+            resolve({ Status: "Updated Card" });
         } else {
             reject({ Status: "Could not update" });
         }
@@ -108,7 +109,7 @@ export const updateList = updatedList => {
         });
         if (hasFoundList) {
             localStorage.setItem("board", JSON.stringify(currentBoard));
-            resolve({ Status: "Updated" });
+            resolve({ Status: "Updated List" });
         } else {
             reject({ Status: "Could not update" });
         }
@@ -116,7 +117,7 @@ export const updateList = updatedList => {
 };
 
 export const getNextCardID = () => {
-    return new Promise((resolve, reject) => {
+    return new Promise(resolve => {
         let newID = -1;
         currentBoard.forEach(list => {
             list.cards.forEach(card => {
@@ -124,6 +125,18 @@ export const getNextCardID = () => {
                     newID = card.id + 1;
                 }
             });
+        });
+        resolve(newID);
+    });
+};
+
+export const getNextListID = () => {
+    return new Promise(resolve => {
+        let newID = -1;
+        currentBoard.forEach(list => {
+            if (newID <= list.id) {
+                newID = list.id + 1;
+            }
         });
         resolve(newID);
     });

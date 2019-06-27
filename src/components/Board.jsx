@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 
 import List from "./List";
-import { getBoard, resetBoard } from "../CardService";
+import {
+    getBoard,
+    resetBoard,
+    getNextCardID,
+    getNextListID,
+    updateBoard
+} from "../CardService";
 
 const Board = () => {
     const [board, setboard] = useState(null);
@@ -13,10 +19,10 @@ const Board = () => {
     }, [board]);
 
     return (
-        // <div className="board">
         <div className="board-container">
             {board && (
                 <>
+                    {/* Header */}
                     <h1 className="text-center" style={{ marginTop: "0" }}>
                         This is the board
                     </h1>
@@ -25,7 +31,6 @@ const Board = () => {
                             className="btn"
                             onClick={() => {
                                 if (!window.confirm("Are you sure?")) return;
-
                                 resetBoard("default").then(
                                     resp => (window.location = ".")
                                 );
@@ -46,6 +51,7 @@ const Board = () => {
                         </button>
                     </div>
                     <hr />
+                    {/* Board of Lists */}
                     <div className="board">
                         {board.map(list => (
                             <List
@@ -55,6 +61,33 @@ const Board = () => {
                             />
                         ))}
                     </div>
+                    {/* Add List */}
+                    <button
+                        className="btn add-card"
+                        onClick={() => {
+                            getNextCardID().then(cardID => {
+                                getNextListID().then(listID => {
+                                    const newList = {
+                                        id: listID,
+                                        title: "Change me!",
+                                        cards: [
+                                            {
+                                                id: cardID,
+                                                text: "..."
+                                            }
+                                        ]
+                                    };
+                                    updateBoard([...board, newList]).then(
+                                        resp => {
+                                            console.log(resp);
+                                        }
+                                    );
+                                });
+                            });
+                        }}
+                    >
+                        Add a List
+                    </button>
                 </>
             )}
         </div>

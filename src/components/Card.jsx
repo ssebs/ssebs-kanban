@@ -12,11 +12,9 @@ const Card = ({ data }) => {
 
     const handleSubmit = () => {
         setIsEditing(false);
-        updateCard(card)
-            .then(resp => {
-                // console.log(resp);
-            })
-            .catch(resp => console.error(resp));
+        updateCard(card).then(resp => {
+            console.log(resp);
+        });
     };
 
     return (
