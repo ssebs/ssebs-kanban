@@ -24,8 +24,12 @@ const Board = () => {
                 <>
                     {/* Header */}
                     <h1 className="text-center" style={{ marginTop: "0" }}>
-                        This is the board
+                        ssebs-kanban
                     </h1>
+                    <h4 className="text-center"
+                    style={{color:"var(--font-lighter)"}}>
+                        This is a simple Kanban style board, it is a work in progress at the moment.
+                    </h4>
                     <div className="btn-group">
                         <button
                             className="btn"
