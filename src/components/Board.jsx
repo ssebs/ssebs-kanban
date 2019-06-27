@@ -31,19 +31,19 @@ const Board = () => {
                             className="btn"
                             onClick={() => {
                                 if (!window.confirm("Are you sure?")) return;
-                                resetBoard("default").then(
-                                    resp => (window.location = ".")
+                                resetBoard("default").then(resp =>
+                                    console.log(resp)
                                 );
                             }}
                         >
                             Reset the Board
-                        </button>
+                        </button>{" "}
                         <button
                             className="btn"
                             onClick={() => {
                                 if (!window.confirm("Are you sure?")) return;
-                                resetBoard("empty").then(
-                                    resp => (window.location = ".")
+                                resetBoard("empty").then(resp =>
+                                    console.log(resp)
                                 );
                             }}
                         >
@@ -51,19 +51,8 @@ const Board = () => {
                         </button>
                     </div>
                     <hr />
-                    {/* Board of Lists */}
-                    <div className="board">
-                        {board.map(list => (
-                            <List
-                                key={list.id}
-                                cards={list.cards}
-                                list={list}
-                            />
-                        ))}
-                    </div>
-                    {/* Add List */}
                     <button
-                        className="btn add-card"
+                        className="btn"
                         onClick={() => {
                             getNextCardID().then(cardID => {
                                 getNextListID().then(listID => {
@@ -86,8 +75,18 @@ const Board = () => {
                             });
                         }}
                     >
-                        Add a List
+                        Add a Column
                     </button>
+                    {/* Board of Lists */}
+                    <div className="board">
+                        {board.map(list => (
+                            <List
+                                key={list.id}
+                                cards={list.cards}
+                                list={list}
+                            />
+                        ))}
+                    </div>
                 </>
             )}
         </div>
