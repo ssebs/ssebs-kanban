@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/ssebs-kanban/static/css/main.c5247b32.chunk.css",
-    "main.js": "/ssebs-kanban/static/js/main.36a8cb12.chunk.js",
-    "main.js.map": "/ssebs-kanban/static/js/main.36a8cb12.chunk.js.map",
+    "main.js": "/ssebs-kanban/static/js/main.e5713c36.chunk.js",
+    "main.js.map": "/ssebs-kanban/static/js/main.e5713c36.chunk.js.map",
     "runtime~main.js": "/ssebs-kanban/static/js/runtime~main.b61b36c4.js",
     "runtime~main.js.map": "/ssebs-kanban/static/js/runtime~main.b61b36c4.js.map",
-    "static/js/2.f2045b6c.chunk.js": "/ssebs-kanban/static/js/2.f2045b6c.chunk.js",
-    "static/js/2.f2045b6c.chunk.js.map": "/ssebs-kanban/static/js/2.f2045b6c.chunk.js.map",
+    "static/js/2.3715103d.chunk.js": "/ssebs-kanban/static/js/2.3715103d.chunk.js",
+    "static/js/2.3715103d.chunk.js.map": "/ssebs-kanban/static/js/2.3715103d.chunk.js.map",
     "index.html": "/ssebs-kanban/index.html",
-    "precache-manifest.27c08f41656270174f094a2edda5f3b8.js": "/ssebs-kanban/precache-manifest.27c08f41656270174f094a2edda5f3b8.js",
+    "precache-manifest.6c586fe2645151bf8845313598d0de94.js": "/ssebs-kanban/precache-manifest.6c586fe2645151bf8845313598d0de94.js",
     "service-worker.js": "/ssebs-kanban/service-worker.js",
     "static/css/main.c5247b32.chunk.css.map": "/ssebs-kanban/static/css/main.c5247b32.chunk.css.map"
   }
